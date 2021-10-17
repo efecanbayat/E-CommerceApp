@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.efecanbayat.e_commerceapp.data.entities.Product
 import com.efecanbayat.e_commerceapp.databinding.FragmentProductListBinding
@@ -54,7 +56,7 @@ class ProductListFragment : Fragment() {
                     setProductList(viewModel.productList)
                 }
                 Resource.Status.ERROR -> {
-
+                    Toast.makeText(requireContext(), "Error! Try again", Toast.LENGTH_SHORT).show()
                 }
             }
         })
@@ -63,7 +65,9 @@ class ProductListFragment : Fragment() {
     private fun addListeners() {
         productAdapter.addListener(object : IProductOnClickListener {
             override fun onClick(product: Product) {
-                //action to detail
+                val action = ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment(product.id)
+                findNavController().navigate(action)
+                productAdapter.removeListener()
             }
 
         })

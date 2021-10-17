@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.efecanbayat.e_commerceapp.data.ApiRepository
 import com.efecanbayat.e_commerceapp.data.entities.Product
-import com.efecanbayat.e_commerceapp.data.entities.ProductListResponse
+import com.efecanbayat.e_commerceapp.data.entities.list.ProductListResponse
 import com.efecanbayat.e_commerceapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

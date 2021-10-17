@@ -1,6 +1,7 @@
-package com.efecanbayat.e_commerceapp.data.entities
+package com.efecanbayat.e_commerceapp.data.entities.list
 
 
+import com.efecanbayat.e_commerceapp.data.entities.Product
 import com.google.gson.annotations.SerializedName
 
 data class ProductListResponse(
