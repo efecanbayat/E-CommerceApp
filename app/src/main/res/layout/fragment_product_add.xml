@@ -4,38 +4,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/dialogProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadingAnimation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/itemConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/updateTitleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/open_sans"
-            android:text="@string/update_product"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/add_product"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backImageView" />
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/updateImageUrlEditText"
+            android:id="@+id/addImageUrlEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -45,7 +57,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateTitleTextView">
+            app:layout_constraintTop_toBottomOf="@+id/addTitleTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -60,7 +72,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/updateNameEditText"
+            android:id="@+id/addNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -70,7 +82,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateImageUrlEditText">
+            app:layout_constraintTop_toBottomOf="@+id/addImageUrlEditText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -85,7 +97,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/updateCategoryEditText"
+            android:id="@+id/addCategoryEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -95,7 +107,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateNameEditText">
+            app:layout_constraintTop_toBottomOf="@+id/addNameEditText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -110,7 +122,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/updateDescriptionEditText"
+            android:id="@+id/addDescriptionEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -120,7 +132,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateCategoryEditText">
+            app:layout_constraintTop_toBottomOf="@+id/addCategoryEditText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -135,7 +147,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/updatePriceEditText"
+            android:id="@+id/addPriceEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -145,7 +157,7 @@
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateDescriptionEditText">
+            app:layout_constraintTop_toBottomOf="@+id/addDescriptionEditText">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -160,46 +172,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/updateButton"
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
             android:background="@drawable/button_background"
             android:backgroundTint="#0A9E10"
             android:fontFamily="@font/open_sans"
             android:padding="15dp"
-            android:text="@string/update"
+            android:text="@string/add"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updatePriceEditText" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/button_background"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:fontFamily="@font/open_sans"
-            android:padding="15dp"
-            android:text="@string/cancel"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updatePriceEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/addPriceEditText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

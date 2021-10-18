@@ -8,4 +8,6 @@
     <string name="product_name">Product Name</string>
     <string name="product_image_url">Product Image Url</string>
     <string name="product_price">Product Price</string>
+    <string name="add_product">Add Product</string>
+    <string name="add">Add</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.efecanbayat.e_commerceapp.data.remote
 
+import com.efecanbayat.e_commerceapp.data.entities.add.ProductAddRequest
+import com.efecanbayat.e_commerceapp.data.entities.add.ProductAddResponse
 import com.efecanbayat.e_commerceapp.data.entities.delete.ProductDeleteResponse
 import com.efecanbayat.e_commerceapp.data.entities.detail.ProductDetailResponse
 import com.efecanbayat.e_commerceapp.data.entities.list.ProductListResponse
@@ -15,6 +17,11 @@ interface APIService {
 
     @GET("product/{id}")
     suspend fun getProductById(@Path("id") productId: String): Response<ProductDetailResponse>
+
+    @POST("product")
+    suspend fun addProduct(
+        @Body productAddRequest: ProductAddRequest
+    ): Response<ProductAddResponse>
 
     @PUT("product/{id}")
     suspend fun updateProduct(

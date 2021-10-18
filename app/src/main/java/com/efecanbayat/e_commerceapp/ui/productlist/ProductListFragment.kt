@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.efecanbayat.e_commerceapp.R
 import com.efecanbayat.e_commerceapp.data.entities.Product
 import com.efecanbayat.e_commerceapp.databinding.FragmentProductListBinding
 import com.efecanbayat.e_commerceapp.utils.Resource
@@ -71,6 +72,11 @@ class ProductListFragment : Fragment() {
             }
 
         })
+        binding.addImageView.setOnClickListener {
+
+            findNavController().navigate(R.id.action_productListFragment_to_productAddFragment)
+            productAdapter.removeListener()
+        }
     }
 
     private fun setProductList(productList: ArrayList<Product>?) {

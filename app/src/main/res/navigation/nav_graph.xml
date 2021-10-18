@@ -17,6 +17,13 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_productListFragment_to_productAddFragment"
+            app:destination="@id/productAddFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_product_detail"
@@ -32,4 +39,9 @@
             app:popUpTo="@id/productDetailFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        tools:layout="@layout/fragment_product_add"
+        android:id="@+id/productAddFragment"
+        android:name="com.efecanbayat.e_commerceapp.ui.productadd.ProductAddFragment"
+        android:label="ProductAddFragment" />
 </navigation>
