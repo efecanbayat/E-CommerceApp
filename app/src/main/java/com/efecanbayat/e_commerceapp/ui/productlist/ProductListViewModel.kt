@@ -19,4 +19,22 @@ class ProductListViewModel @Inject constructor(
     fun getProducts(): LiveData<Resource<ProductListResponse>> {
         return apiRepository.getProducts()
     }
+
+    fun getProductByCategory(category: String): LiveData<Resource<ProductListResponse>> {
+        return apiRepository.getProductByCategory(category)
+    }
+
+    fun searchTextOnProductList(text: String?): ArrayList<Product>? {
+        if (text.isNullOrEmpty())
+            return productList
+
+        val filterList: ArrayList<Product> = arrayListOf()
+        productList?.forEach { product ->
+            if (product.name.contains(text, true))
+                filterList.add(product)
+            else if (product.category.contains(text, true))
+                filterList.add(product)
+        }
+        return filterList
+    }
 }

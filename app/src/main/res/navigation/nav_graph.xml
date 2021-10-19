@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/productListFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         tools:layout="@layout/fragment_product_list"
@@ -44,4 +44,15 @@
         android:id="@+id/productAddFragment"
         android:name="com.efecanbayat.e_commerceapp.ui.productadd.ProductAddFragment"
         android:label="ProductAddFragment" />
+    <fragment
+        tools:layout="@layout/fragment_splash"
+        android:id="@+id/splashFragment"
+        android:name="com.efecanbayat.e_commerceapp.ui.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_productListFragment"
+            app:destination="@id/productListFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

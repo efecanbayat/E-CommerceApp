@@ -27,7 +27,7 @@ class ProductDetailViewModel @Inject constructor(
         return apiRepository.updateProduct(productId, productUpdateRequest)
     }
 
-    fun deleteProduct(productId:String): LiveData<Resource<ProductDeleteResponse>>{
+    fun deleteProduct(productId: String): LiveData<Resource<ProductDeleteResponse>> {
         return apiRepository.deleteProduct(productId)
     }
 }

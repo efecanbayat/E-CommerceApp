@@ -24,11 +24,12 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backImageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:src="@drawable/ic_back"
+            android:tint="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +40,7 @@
             android:fontFamily="@font/open_sans"
             android:text="@string/add_product"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +69,8 @@
                 android:hint="@string/product_image_url"
                 android:inputType="text"
                 android:padding="20dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,8 @@
                 android:hint="@string/product_name"
                 android:inputType="textCapWords"
                 android:padding="20dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -118,7 +121,8 @@
                 android:hint="@string/product_category"
                 android:inputType="textCapWords"
                 android:padding="20dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -143,7 +147,8 @@
                 android:hint="@string/product_description"
                 android:inputType="textCapSentences"
                 android:padding="20dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -168,7 +173,8 @@
                 android:hint="@string/product_price"
                 android:inputType="number"
                 android:padding="20dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -176,8 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/button_background"
-            android:backgroundTint="#0A9E10"
+            android:background="@drawable/update_button_background"
             android:fontFamily="@font/open_sans"
             android:padding="15dp"
             android:text="@string/add"

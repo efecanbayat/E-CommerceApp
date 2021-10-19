@@ -11,6 +11,10 @@ class RemoteDataSource @Inject constructor(private val apiService: APIService) :
         apiService.getProducts()
     }
 
+    suspend fun getProductByCategory(category: String) = getResult {
+        apiService.getProductByCategory(category)
+    }
+
     suspend fun getProductById(productId: String) = getResult {
         apiService.getProductById(productId)
     }
@@ -19,9 +23,10 @@ class RemoteDataSource @Inject constructor(private val apiService: APIService) :
         apiService.addProduct(productAddRequest)
     }
 
-    suspend fun updateProduct(productId: String, productUpdateRequest: ProductUpdateRequest) = getResult {
-        apiService.updateProduct(productId,productUpdateRequest)
-    }
+    suspend fun updateProduct(productId: String, productUpdateRequest: ProductUpdateRequest) =
+        getResult {
+            apiService.updateProduct(productId, productUpdateRequest)
+        }
 
     suspend fun deleteProduct(productId: String) = getResult {
         apiService.deleteProduct(productId)

@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.efecanbayat.e_commerceapp.R
 import com.efecanbayat.e_commerceapp.data.entities.update.ProductUpdateRequest
 import com.efecanbayat.e_commerceapp.databinding.FragmentProductUpdateDialogBinding
 import com.efecanbayat.e_commerceapp.utils.Resource
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +27,11 @@ class ProductUpdateDialogFragment(private val productId: String) : BottomSheetDi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        dialog?.setOnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheet = d.findViewById<View>(R.id.design_bottom_sheet)!!
+            BottomSheetBehavior.from(bottomSheet).state = BottomSheetBehavior.STATE_EXPANDED
+        }
         binding = FragmentProductUpdateDialogBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,7 +49,7 @@ class ProductUpdateDialogFragment(private val productId: String) : BottomSheetDi
                 when (it.status) {
                     Resource.Status.LOADING -> {
                         dialogProgressBar.visibility = View.VISIBLE
-                        itemConstraintLayout.visibility = View.GONE
+                        itemConstraintLayout.visibility = View.INVISIBLE
                     }
                     Resource.Status.SUCCESS -> {
                         dialogProgressBar.visibility = View.GONE

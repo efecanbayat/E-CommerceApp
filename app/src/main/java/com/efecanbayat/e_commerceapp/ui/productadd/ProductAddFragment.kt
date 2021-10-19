@@ -1,33 +1,22 @@
 package com.efecanbayat.e_commerceapp.ui.productadd
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.efecanbayat.e_commerceapp.base.BaseFragment
 import com.efecanbayat.e_commerceapp.data.entities.add.ProductAddRequest
 import com.efecanbayat.e_commerceapp.databinding.FragmentProductAddBinding
 import com.efecanbayat.e_commerceapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProductAddFragment : Fragment() {
+class ProductAddFragment : BaseFragment<FragmentProductAddBinding>(FragmentProductAddBinding::inflate) {
 
-    private lateinit var binding: FragmentProductAddBinding
     private val viewModel: ProductAddViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentProductAddBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +43,7 @@ class ProductAddFragment : Fragment() {
             val description = addDescriptionEditText.editText?.text.toString()
             val price = addPriceEditText.editText?.text.toString().toIntOrNull()
 
-            if(imageUrl.isEmpty() || name.isEmpty() || category.isEmpty() || description.isEmpty() || price == null){
+            if (imageUrl.isEmpty() || name.isEmpty() || category.isEmpty() || description.isEmpty() || price == null) {
 
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("Error!")
@@ -62,8 +51,7 @@ class ProductAddFragment : Fragment() {
                 builder.setPositiveButton("Ok") { dialog, which ->
                 }
                 builder.show()
-            }
-            else{
+            } else {
                 viewModel.addProduct(
                     ProductAddRequest(name, imageUrl, description, price, category)
                 )

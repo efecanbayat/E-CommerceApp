@@ -14,6 +14,10 @@ class ApiRepository @Inject constructor(
         remoteDataSource.getProducts()
     }
 
+    fun getProductByCategory(category: String) = performNetworkOperation {
+        remoteDataSource.getProductByCategory(category)
+    }
+
     fun getProductById(productId: String) = performNetworkOperation {
         remoteDataSource.getProductById(productId)
     }
@@ -22,7 +26,8 @@ class ApiRepository @Inject constructor(
         remoteDataSource.addProduct(productAddRequest)
     }
 
-    fun updateProduct(productId: String, productUpdateRequest: ProductUpdateRequest) = performNetworkOperation {
+    fun updateProduct(productId: String, productUpdateRequest: ProductUpdateRequest) =
+        performNetworkOperation {
             remoteDataSource.updateProduct(productId, productUpdateRequest)
         }
 
