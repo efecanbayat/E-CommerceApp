@@ -28,4 +28,4 @@ This project is a application about ecommerce.
 * Product Update Screen(Bottom Sheet)
 
 ---
-<img src="./gifs/ecommerce.gif" height="500px" width="250px"/>
+<img src="./gifs/ecommerce.gif" height="550px" width="260px"/>
